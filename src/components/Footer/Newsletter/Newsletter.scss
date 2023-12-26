@@ -9,6 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    // color: black;
 
     .newsletter-content {
         width: fit-content;
@@ -25,7 +26,6 @@
         margin-bottom: 15px;
         text-transform: uppercase;
         color: rgba(0, 0, 0, 0.5);
-        color: black;
     }
 
     .big-text {
@@ -35,7 +35,7 @@
         font-weight: 500;
         text-transform: uppercase;
         padding: 0 30px;
-        color: black;
+        color: rgba(0, 0, 0, 0.7);
 
         @include md {
             font-size: 28px;
@@ -44,11 +44,9 @@
 
     .form {
         display: flex;
-        gap: 5px;
         margin-bottom: 10px;
         border-radius: 5px 0 0 5px;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        // padding: 0 12px;
         font-size: 16px;
         outline: 0;
         width: 350px;
