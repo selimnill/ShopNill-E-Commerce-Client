@@ -42,7 +42,7 @@ const Footer = () => {
                 <span className="text">Returns</span>
                 <span className="text">Terms & Conditions</span>
                 <span className="text">Contact Us</span>
-            </div>
+            </div>  
         </div>
         <div className="bottom-bar">
             <div className="bottom-bar-content">
