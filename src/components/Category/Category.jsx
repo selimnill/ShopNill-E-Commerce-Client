@@ -1,23 +1,15 @@
+import Products from "../Products/Products";
 import "./Category.scss";
-import cat1 from "../../assets/category/cat-1.jpg";
+
 
 const Category = () => {
-    return <div className="category-filter">
-        <div className="categories">
-            <div className="category">
-                <img src={cat1} alt="" />
+    return <div className="category-main-content">
+        <div className="layout">
+            <div className="title">
+                title
             </div>
-            <div className="category">
-                <img src={cat1} alt="" />
-            </div>
-            <div className="category">
-                <img src={cat1} alt="" />
-            </div>
-            <div className="category">
-                <img src={cat1} alt="" />
-            </div>
+            <Products innerPage={true} />
         </div>
-        
     </div>;
 };
 
