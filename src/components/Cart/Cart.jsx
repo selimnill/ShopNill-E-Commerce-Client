@@ -5,13 +5,34 @@ import CartItem from "./CartItem/CartItem";
 import { useContext } from "react";
 import { Context } from "../../utils/context";
 import { useNavigate } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js"
+import { makePaymentRequest } from "../../utils/api";
 
 
 const Cart = ({ setShowCart }) => {
 
-    const {cartItems, cartSubTotal} = useContext(Context);
+    const { cartItems, cartSubTotal } = useContext(Context);
 
     const navigate = useNavigate();
+
+    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
+
+    const handlePayment = async () => {
+
+        try {
+            const stripe = await stripePromise;
+            const res = await makePaymentRequest.post("/api/oders", {
+                products: cartItems,
+            })
+
+            await stripe.redirectToCheckout({
+                sessionId: res.data.stripeSession.id
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return <div className="cart-panel">
         <div className="cart-content">
@@ -26,9 +47,9 @@ const Cart = ({ setShowCart }) => {
                 <BsCartX />
                 <span>No producs in the Cart</span>
                 <button className="return-cta" onClick={() => navigate("/")}>RETURN TO SHOP</button>
-            </div> }
+            </div>}
 
-           {!!cartItems.length && <>
+            {!!cartItems.length && <>
                 <CartItem />
                 <div className="cart-footer">
                     <div className="subtotal">
@@ -36,7 +57,7 @@ const Cart = ({ setShowCart }) => {
                         <span className="total">&#36; {cartSubTotal}</span>
                     </div>
                     <div className="button">
-                        <button className="checkout-cta">CheckOut</button>
+                        <button className="checkout-cta" onClick={handlePayment} >CheckOut</button>
                     </div>
                 </div>
             </>}
