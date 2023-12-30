@@ -20,7 +20,7 @@ const Home = () => {
 
     const getProducts = () => {
         fetchDataFromAPI("/api/products?populate=*").then(res => {
-            setProducts(res.data);
+            setProducts(res);
             console.log("Data From Home page", res);
         });
     }

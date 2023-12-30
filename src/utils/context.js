@@ -11,7 +11,7 @@ const AppContext = ({ children }) => {
 
 
 
-    console.log("This is products from context", products);
+    // console.log("This is products from context", products);
 
     return (
         <Context.Provider

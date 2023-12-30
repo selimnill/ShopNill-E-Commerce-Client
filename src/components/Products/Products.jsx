@@ -9,15 +9,12 @@ console.log("Data from Products Page", products)
 
     return (
         <div className="products-container">
-
             {!innerPage && <div className="sec-heading">{headingText}</div>}
-
-            <div className="products">
+            <div className={`products ${innerPage ? "innerPage" : ""}`}>
                 {
-                    products?.data?.map(item => <Product data={item} key={item.id}/>) //
+                    products?.data?.map((item) => <Product key={item.id} id={item.id} item={item}/>) 
                 }
-
-                <Product />
+               
             </div>
         </div>
     );
