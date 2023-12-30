@@ -10,7 +10,8 @@ import {
 } from "react-icons/fa";
 import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Context } from "../../utils/context";
 
 
 
@@ -37,6 +38,9 @@ const SingleProduct = () => {
     }
 
 
+    const {handleAddToCart} = useContext(Context)
+
+
 
 
     return <div className="single-product-main-content">
@@ -57,7 +61,13 @@ const SingleProduct = () => {
                             <span onClick={increment}>+</span>
 
                         </div>
-                        <button className="add-to-cart-button"><FaCartPlus size={20} /> ADD TO CART</button>
+                        <button className="add-to-cart-button"><FaCartPlus size={20}
+                         onClick={() => {
+                            handleAddToCart(data?.data[0], quantity);
+                            setQuantity(1)
+                        }
+                        }
+                         /> ADD TO CART</button>
                     </div>
                     <span className="divider" />
                     <div className="info-item">
