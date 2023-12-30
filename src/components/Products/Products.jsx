@@ -4,7 +4,7 @@ import { Context } from "../../utils/context";
 import "./Products.scss";
 const Products = ({ products, innerPage, headingText, }) => {
 
-
+console.log("Data from Products Page", products)
 
 
     return (
@@ -14,7 +14,7 @@ const Products = ({ products, innerPage, headingText, }) => {
 
             <div className="products">
                 {
-                    products?.data.map(item => <Product data={item} />) //
+                    products?.data?.map(item => <Product data={item} key={item.id}/>) //
                 }
 
                 <Product />

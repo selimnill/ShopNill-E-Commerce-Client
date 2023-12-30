@@ -11,21 +11,6 @@ const AppContext = ({ children }) => {
 
 
 
-    // useEffect(() => {
-
-    //     // getProducts();
-
-    //     fetchDataFromAPI("/api/products?populate=*").then(res => {
-    //         setProducts(res?.data);
-    //         console.log("setProduct response", res?.data);
-    //     });
-
-    // }, [])
-
-
-
-
-
     console.log("This is products from context", products);
 
     return (

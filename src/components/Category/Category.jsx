@@ -17,7 +17,7 @@ const Category = () => {
     return <div className="category-main-content">
         <div className="layout">
             <div className="title">
-                Categories
+                {data?.data?.[0]?.attributes?.categories?.data?.[0]?.attributes?.title}
             </div>
             <Products innerPage={true} products={data} />
         </div>

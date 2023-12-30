@@ -21,7 +21,7 @@ const Home = () => {
     const getProducts = () => {
         fetchDataFromAPI("/api/products?populate=*").then(res => {
             setProducts(res.data);
-            console.log(res);
+            console.log("Data From Home page", res);
         });
     }
     const getCategories = () => {
@@ -31,7 +31,7 @@ const Home = () => {
         })
     }
 
-    console.log("This is products from HOme", products)
+    console.log("This is products from Home", products)
 
     return (
         <div>
