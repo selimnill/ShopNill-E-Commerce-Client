@@ -11,12 +11,11 @@ const Home = () => {
 
     const { categories, setCategories, products, setProducts } = useContext(Context);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     getProducts();
-    //     getCategories();
+        getCategories();
 
-    // }, [])
+    }, [])
 
 
     // const getProducts = () => {

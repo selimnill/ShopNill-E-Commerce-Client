@@ -3,7 +3,6 @@ import Product from "./Product/Product";
 import { Context } from "../../utils/context";
 import "./Products.scss";
 const Products = ({ innerPage, headingText, }) => {
-    // console.log(products.data[0].attributes.img.data[0].attributes.url)
 
     const { products } = useContext(Context);
 
