@@ -32,6 +32,8 @@ const Header = () => {
 
     const navigate = useNavigate();
 
+    const {cartCount} = useContext(Context);
+
     return (
         <>
             <header className={`main-header ${scrolled ? 'sticky-header' : ''}`}>
@@ -51,7 +53,7 @@ const Header = () => {
                          onClick={() => setShowCart(true)}
                          >
                             <CgShoppingCart />
-                            <span>5</span>
+                            {!!cartCount && <span>{cartCount}</span>}
                         </span>
                     </div>
                 </div>
