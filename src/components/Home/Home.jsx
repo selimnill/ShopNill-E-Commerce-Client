@@ -32,6 +32,7 @@ const Home = () => {
         })
     }
 
+    // console.log(products)
 
     return (
         <div>
@@ -44,10 +45,9 @@ const Home = () => {
                         innerPage={true}
                     />
                     <Products
-                        products={products}
+                       // products={products}
                         headingText="Popular Products"
                     />
-
                 </div>
             </div>
         </div>
