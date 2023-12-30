@@ -11,20 +11,20 @@ const Home = () => {
 
     const { categories, setCategories, products, setProducts } = useContext(Context);
 
-    useEffect(() => {
-        
-        getCategories();
-        getProducts();
+    // useEffect(() => {
 
-    }, [])
+    //     getProducts();
+    //     getCategories();
+
+    // }, [])
 
 
-    const getProducts = () => {
-        fetchDataFromAPI("/api/products?populate=*").then(res => {
-            setProducts(res);
-            console.log(res);
-        });
-    }
+    // const getProducts = () => {
+    //     fetchDataFromAPI("/api/products?populate=*").then(res => {
+    //         setProducts(res);
+    //         console.log(res);
+    //     });
+    // }
     const getCategories = () => {
         fetchDataFromAPI("/api/categories?populate=*").then(res => {
             setCategories(res);
@@ -32,7 +32,7 @@ const Home = () => {
         })
     }
 
-    // console.log(products)
+    console.log("This is products from HOme",products)
 
     return (
         <div>
@@ -45,7 +45,6 @@ const Home = () => {
                         innerPage={true}
                     />
                     <Products
-                       // products={products}
                         headingText="Popular Products"
                     />
                 </div>
