@@ -21,13 +21,13 @@ const Cart = ({ setShowCart }) => {
 
         try {
             const stripe = await stripePromise;
-            const res = await makePaymentRequest.post("/api/oders", {
+            const res = await makePaymentRequest.post("/api/orders", {
                 products: cartItems,
             })
 
             await stripe.redirectToCheckout({
                 sessionId: res.data.stripeSession.id
-            })
+            });
 
         } catch (error) {
             console.log(error)
@@ -35,6 +35,10 @@ const Cart = ({ setShowCart }) => {
     }
 
     return <div className="cart-panel">
+        <div className="opac-layer"
+        onClick={() => setShowCart(false)} 
+        >
+        </div>
         <div className="cart-content">
             <div className="cart-header">
                 <span className="heading">Shopping Cart</span>
