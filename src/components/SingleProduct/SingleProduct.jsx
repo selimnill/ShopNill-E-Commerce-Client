@@ -17,6 +17,8 @@ import { Context } from "../../utils/context";
 
 const SingleProduct = () => {
 
+
+    const {handleAddToCart} = useContext(Context);
     const [quantity, setQuantity] = useState(1);
 
     const { id } = useParams();
@@ -37,8 +39,6 @@ const SingleProduct = () => {
         });
     }
 
-
-    const {handleAddToCart} = useContext(Context)
 
 
 
@@ -61,12 +61,12 @@ const SingleProduct = () => {
                             <span onClick={increment}>+</span>
 
                         </div>
-                        <button className="add-to-cart-button"><FaCartPlus size={20}
-                         onClick={() => {
+                        <button className="add-to-cart-button" onClick={() => {
                             handleAddToCart(data?.data[0], quantity);
                             setQuantity(1)
                         }
-                        }
+                        }><FaCartPlus size={20}
+                         
                          /> ADD TO CART</button>
                     </div>
                     <span className="divider" />

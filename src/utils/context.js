@@ -16,27 +16,31 @@ const AppContext = ({ children }) => {
     const location = useLocation();
 
     useEffect(() => {
-        const handleAddToCart = (product, quantity) => {
-            let items = [...cartItems];
-            let index = items.findIndex(p => p.id === product.id)
-            if (!index === -1) {
-                items[index].attributes.quantity += quantity;
-            }
-            else{
-                product.attributes.quantity = quantity;
-                items = [...items, product];
-            }
-            setCartItems(items);
-        }
-        const handleRemoveFromCart = (product) => {
-            let items = [...cartItems];
-            items = items.filter(p => p.id !== product.id)
-            setCartItems(items);
-        }
-        const handleCartProductQuantity = (type, product) => {
 
+    }, [cartItems]);
+
+    const handleAddToCart = (product, quantity) => {
+        let items = [...cartItems];
+        let index = items?.findIndex((p) => p.id === product?.id)
+        if (index !== -1) {
+            items[index].attributes.quantity += quantity;
         }
-    }, [cartItems])
+        else {
+            product.attributes.quantity = quantity;
+            items = [...items, product];
+        }
+        setCartItems(items);
+    };
+    const handleRemoveFromCart = (product) => {
+        let items = [...cartItems];
+        items = items?.filter((p) => p.id !== product?.id)
+        setCartItems(items);
+    }
+    const handleCartProductQuantity = (type, product) => {
+
+    }
+
+    console.log("cartitems", cartItems);
 
     return (
         <Context.Provider
