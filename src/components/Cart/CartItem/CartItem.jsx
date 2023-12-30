@@ -7,7 +7,7 @@ import { Context } from "../../../utils/context";
 
 const CartItem = () => {
 
-    const { handleRemoveFromCart, cartItems } = useContext(Context);
+    const { handleRemoveFromCart, cartItems, handleCartProductQuantity } = useContext(Context);
 
 
     return (
@@ -20,16 +20,16 @@ const CartItem = () => {
                     </div>
                     <div className="product-details">
                         <span className="name">{item?.attributes?.title}</span>
-                        <MdClose className="close-btn" />
+                        <MdClose className="close-btn" onClick={() => handleRemoveFromCart(item)} />
                         <div className="quantity-buttons">
-                            <span>-</span>
-                            <span>5</span>
-                            <span>+</span>
+                            <span onClick={() => handleCartProductQuantity('dec', item)}>-</span>
+                            <span>{item?.attributes?.quantity}</span>
+                            <span onClick={() => handleCartProductQuantity('inc', item)}>+</span>
                         </div>
                         <div className="text">
-                            <span>3</span>
+                            <span>{item?.attributes?.quantity}</span>
                             <span>X</span>
-                            <span className="highlight">{item?.attributes?.price}</span>
+                            <span className="highlight">&#36; {item?.attributes?.price * item?.attributes?.quantity}</span>
                         </div>
                     </div>
                 </div>

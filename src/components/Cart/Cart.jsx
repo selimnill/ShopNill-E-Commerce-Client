@@ -6,7 +6,6 @@ import CartItem from "./CartItem/CartItem";
 
 const Cart = ({ setShowCart }) => {
     return <div className="cart-panel">
-        {/* <div className="opac-layer">cart</div> */}
         <div className="cart-content">
             <div className="cart-header">
                 <span className="heading">Shopping Cart</span>
