@@ -11,16 +11,16 @@ const AppContext = ({ children }) => {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // getProducts();
+    //     // getProducts();
 
-        fetchDataFromAPI("/api/products?populate=*").then(res => {
-            setProducts(res?.data);
-            console.log("setProduct response", res?.data);
-        });
+    //     fetchDataFromAPI("/api/products?populate=*").then(res => {
+    //         setProducts(res?.data);
+    //         console.log("setProduct response", res?.data);
+    //     });
 
-    }, [])
+    // }, [])
 
 
 
